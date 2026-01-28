@@ -29,7 +29,9 @@ A clean, modern, and informative tooltip replacement for World of Warcraft.
 Found a bug? Have a suggestion? Feel free to open an issue on the [GitHub repository](https://github.com/NoobTaco/NoobTacoToolTip).
 
 ## License
-MIT
+Code in this repository is licensed under GPL-3.0-or-later. See `LICENSE` for details.
+*Media files (fonts, audio, textures) are included under their respective upstream licenses.*
+
 
 ## 📄 AI Usage
 
