@@ -79,7 +79,7 @@ function NT:OnTooltipSetData(tooltip, data)
       if specName == "" then
         local specID = GetInspectSpecialization(unit)
         if specID and specID > 0 then
-          _, specName = GetSpecializationInfoByID(specID)
+          specName = select(2, GetSpecializationInfoByID(specID))
         end
       end
     end
