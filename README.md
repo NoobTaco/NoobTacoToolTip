@@ -1,5 +1,7 @@
 # NoobTacoToolTip 🌮
 
+[![CI Status](https://img.shields.io/github/actions/workflow/status/NoobTaco/NoobTacoToolTip/ci.yml?style=for-the-badge&logo=github&logoColor=white&label=CI%20Status)](https://github.com/NoobTaco/NoobTacoToolTip/actions/workflows/ci.yml) [![Release Status](https://img.shields.io/github/actions/workflow/status/NoobTaco/NoobTacoToolTip/release.yml?style=for-the-badge&logo=github&logoColor=white&label=Release%20Status)](https://github.com/NoobTaco/NoobTacoToolTip/actions/workflows/release.yml) [![Discord](https://img.shields.io/badge/Discord-Taco%20Labs-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/Mby5KwkCH9) [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-Donate-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/devnoobtaco)
+
 A clean, modern, and informative tooltip replacement for World of Warcraft.
 
 ## What is this?
@@ -24,7 +26,11 @@ A clean, modern, and informative tooltip replacement for World of Warcraft.
 4.  Tweak the settings to your heart's content!
 
 ## Feedback & Support
-Found a bug? Have a suggestion? Feel free to open an issue on our [GitHub repository](https://github.com/NoobTaco/NoobTacoToolTip).
+Found a bug? Have a suggestion? Feel free to open an issue on the [GitHub repository](https://github.com/NoobTaco/NoobTacoToolTip).
 
 ## License
 MIT
+
+## 📄 AI Usage
+
+See [AI_USAGE.md](https://github.com/NoobTaco/NoobTacoToolTip/blob/main/AI_USAGE.md) for more information.

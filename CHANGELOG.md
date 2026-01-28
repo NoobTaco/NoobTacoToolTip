@@ -3,7 +3,7 @@
 ## [1.0.0-alpha] - 2026-01-28
 
 ### Initial Alpha Release! 🎉
-Welcome to the first alpha release of NoobTacoToolTip! We've built a clean, modern replacement for the default WoW tooltips.
+Welcome to the first alpha release of NoobTacoToolTip! I've built a clean, modern replacement for the default WoW tooltips.
 
 ### ✨ New Features
 *   **Fresh Look**: Custom tooltips with adjustable borders, backgrounds, and sizes.
