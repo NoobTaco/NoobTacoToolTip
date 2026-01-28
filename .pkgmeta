@@ -1,0 +1,15 @@
+package-as: NoobTacoToolTip
+
+ignore:
+    - dev
+    - assets
+    - .github
+    - README.md
+    - LICENSE
+    - .gitignore
+    - dev-helper.sh
+
+externals:
+    Libraries/LibSharedMedia-3.0: 
+        url: https://github.com/NoobTaco/LibSharedMedia-3.0.git
+        tag: main

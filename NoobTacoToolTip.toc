@@ -1,0 +1,20 @@
+## Interface: 120001, 120000, 110007, 110100, 40402, 11505
+## Title: |cffD78144NoobTaco|r|cffF8F9FAToolTip|r
+## Author: NoobTaco
+## Version: @project-version@
+## Notes: A clean and informative tooltip addon.
+## IconTexture: Interface\AddOns\NoobTacoToolTip\Media\Textures\logo.tga
+## SavedVariables: NoobTacoToolTipDB
+## X-Curse-Project-ID: 1447369
+## X-Wago-ID: placeholder
+
+# Libraries
+Libraries\LibStub\LibStub.lua
+Libraries\CallbackHandler-1.0\CallbackHandler-1.0.lua
+Libraries\LibSharedMedia-3.0\lib.xml
+
+# Core
+Localization.lua
+Core.lua
+Styles.lua
+Options.lua
