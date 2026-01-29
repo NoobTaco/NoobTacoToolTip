@@ -281,7 +281,7 @@ function NT:Initialize()
     end
   end)
 
-  print("|cffD78144NoobTacoToolTip|r loaded. Version: " .. (NT.Version or "dev"))
+  print("|cffD78144NoobTaco|r|cffF8F9FAToolTip|r loaded. Version: " .. (NT.Version or "dev"))
 end
 
 local function OnEvent(self, event, ...)

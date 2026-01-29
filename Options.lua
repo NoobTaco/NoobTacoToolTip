@@ -64,7 +64,7 @@ function NT:InitializeOptions()
   end
 
   -- Register Settings in the modern system
-  local category, layout = Settings.RegisterVerticalLayoutCategory(addonName)
+  local category, layout = Settings.RegisterVerticalLayoutCategory("|cffD78144NoobTaco|r|cffF8F9FAToolTip|r")
 
   -- Appearance Section
   layout:AddInitializer(CreateSettingsListSectionHeaderInitializer("Appearance"))
