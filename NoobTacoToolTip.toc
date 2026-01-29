@@ -3,7 +3,17 @@
 ## Author: NoobTaco
 ## Version: @project-version@
 ## Notes: A clean and informative tooltip addon.
-## X-Category: Tooltip
+## Category-enUS: Tooltip
+## Category-deDE: Tooltip
+## Category-esES: Tooltip
+## Category-esMX: Tooltip
+## Category-itIT: Tooltip
+## Category-frFR: Tooltip
+## Category-ptBR: Tooltip
+## Category-ruRU: Подсказка
+## Category-koKR: 툴팁
+## Category-zhCN: 提示
+## Category-zhTW: 提示
 ## IconTexture: Interface\AddOns\NoobTacoToolTip\Media\Textures\logo.tga
 ## SavedVariables: NoobTacoToolTipDB
 ## X-Curse-Project-ID: 1447369
