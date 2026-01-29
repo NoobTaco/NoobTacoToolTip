@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.0.0-beta] - 2026-01-29
+## [1.0.0] - 2026-01-29
 
 ### ✨ New Features
 *   **Player Inspection iLevel**: Added the ability to see item levels for other players via inspection!
