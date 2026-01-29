@@ -1,20 +1,20 @@
-# NoobTacoToolTip 🌮
+# NoobTacoToolTip
 
 [![CI Status](https://img.shields.io/github/actions/workflow/status/NoobTaco/NoobTacoToolTip/ci.yml?style=for-the-badge&logo=github&logoColor=white&label=CI%20Status)](https://github.com/NoobTaco/NoobTacoToolTip/actions/workflows/ci.yml) [![Release Status](https://img.shields.io/github/actions/workflow/status/NoobTaco/NoobTacoToolTip/release.yml?style=for-the-badge&logo=github&logoColor=white&label=Release%20Status)](https://github.com/NoobTaco/NoobTacoToolTip/actions/workflows/release.yml) [![Discord](https://img.shields.io/badge/Discord-Taco%20Labs-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/Mby5KwkCH9) [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-Donate-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/devnoobtaco)
 
-A clean, modern, and informative tooltip replacement for World of Warcraft.
+A clean, and informative tooltip replacement for World of Warcraft.
 
 ![Full Preview](assets/noobtacotooltip-default.png)
 
 ## What is this?
-**NoobTacoToolTip** (NT) takes your standard default tooltips and gives them a makeover. It makes them look sharper, provides more useful information at a glance, and lets you customize how they look.
+**NoobTacoToolTip** (NTTT) takes your standard default tooltips and gives them a makeover. It makes them look sharper, provides more useful information at a glance, and lets you customize how they look.
 
 ## Key Features
 *   **Looks Better**: Crisp borders, custom backgrounds, and customizable fonts.
 *   **Information Rich**:
     *   **Item Levels**: See item levels directly on the tooltip.
-    *   **IDs**: Easily tackle development or database tasks with Spell ID, NPC ID, and Icon ID displays.
-    *   **Unit Info**: Class colors for names, race/level info, and even who the unit is targeting.
+    *   **IDs**: Spell ID, NPC ID, and Icon ID displays.
+    *   **Unit Info**: Class colors for names, race/level info, and who the unit is targeting.
 *   **Customizable**:
     *   Adjust the scale.
     *   Pick your border colors.
