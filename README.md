@@ -4,6 +4,8 @@
 
 A clean, modern, and informative tooltip replacement for World of Warcraft.
 
+![Full Preview](assets/noobtacotooltip-default.png)
+
 ## What is this?
 **NoobTacoToolTip** (NT) takes your standard default tooltips and gives them a makeover. It makes them look sharper, provides more useful information at a glance, and lets you customize how they look.
 
@@ -11,7 +13,9 @@ A clean, modern, and informative tooltip replacement for World of Warcraft.
 *   **Looks Better**: Crisp borders, custom backgrounds, and customizable fonts.
 *   **Information Rich**:
     *   **Item Levels**: See item levels directly on the tooltip.
+    ![Item Preview](assets/noobtacotooltip-item.png)
     *   **IDs**: Easily tackle development or database tasks with Spell ID, NPC ID, and Icon ID displays.
+    ![Spell Preview](assets/noobtacotooltip-spell.png)
     *   **Unit Info**: Class colors for names, race/level info, and even who the unit is targeting.
 *   **Customizable**:
     *   Adjust the scale.
@@ -24,6 +28,8 @@ A clean, modern, and informative tooltip replacement for World of Warcraft.
 2.  Log into World of Warcraft.
 3.  Go to `Options` -> `AddOns` -> `NoobTacoToolTip`.
 4.  Tweak the settings to your heart's content!
+
+![Options Preview](assets/noobtacotooltip-options.png)
 
 ## Feedback & Support
 Found a bug? Have a suggestion? Feel free to open an issue on the [GitHub repository](https://github.com/NoobTaco/NoobTacoToolTip).
