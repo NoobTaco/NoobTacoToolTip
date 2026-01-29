@@ -27,6 +27,20 @@ local function GetFontOptions()
   return container:GetData()
 end
 
+local function GetColorOptions()
+  local container = Settings.CreateControlTextContainer()
+  container:Add("FF000000", "Black")
+  container:Add("FFFFFFFF", "White")
+  container:Add("FFFF0000", "Red")
+  container:Add("FF00FF00", "Green")
+  container:Add("FF0000FF", "Blue")
+  container:Add("FFFFFF00", "Yellow")
+  container:Add("FF00FFFF", "Cyan")
+  container:Add("FFFF00FF", "Magenta")
+  container:Add("FF0F0F0F", "Dark Gray (Default)")
+  return container:GetData()
+end
+
 function NT:InitializeOptions()
   -- Simple defaults merging
   for k, v in pairs(defaults) do
@@ -71,7 +85,7 @@ function NT:InitializeOptions()
   setting = Settings.RegisterAddOnSetting(category, "NT_BORDER_COLOR", "borderColor", NoobTacoToolTipDB,
     type(defaults.borderColor), L["BORDER_COLOR_NAME"], defaults.borderColor)
 
-  Settings.CreateColorSwatch(category, setting, nil, L["BORDER_COLOR_DESC"])
+  Settings.CreateDropdown(category, setting, GetColorOptions, L["BORDER_COLOR_DESC"])
 
   -- Header Font
   setting = Settings.RegisterAddOnSetting(category, "NT_HEADER_FONT", "headerFont", NoobTacoToolTipDB,
@@ -94,7 +108,7 @@ function NT:InitializeOptions()
   -- Item Level
   setting = Settings.RegisterAddOnSetting(category, "NT_SHOW_ITEM_LEVEL", "showItemLevel", NoobTacoToolTipDB,
     type(defaults.showItemLevel), "Show Item Level", defaults.showItemLevel)
-  Settings.CreateCheckbox(category, setting, "Displays the item level on item tooltips.")
+  Settings.CreateCheckbox(category, setting, "Displays the item level on item and player tooltips.")
 
   -- Spell ID
   setting = Settings.RegisterAddOnSetting(category, "NT_SHOW_SPELL_ID", "showSpellId", NoobTacoToolTipDB,

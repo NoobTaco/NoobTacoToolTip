@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.0-beta] - 2026-01-29
+
+### ✨ New Features
+*   **Player Inspection iLevel**: Added the ability to see item levels for other players via inspection!
+*   **Enhanced iLevel Display**: Item levels now feature color-coded values for better readability.
+*   **Improved Options**: Changed the border color setting to use a selection of presets for easier and faster customization.
+*   **Expanded iLevel Support**: Item levels are now shown on both item and player tooltips.
+
 ## [1.0.0-alpha] - 2026-01-28
 
 ### Initial Alpha Release! 🎉

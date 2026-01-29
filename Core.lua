@@ -40,6 +40,14 @@ function NT:OnTooltipSetData(tooltip, data)
   local db = NoobTacoToolTipDB
 
   if data.type == Enum.TooltipDataType.Item then
+    if db.showItemLevel then
+      local level = self:GetItemLevel(data)
+      if level then
+        local levelColor = { r = 1, g = 0.82, b = 0 } -- Yellow
+        tooltip:AddLine(L["ITEM_LEVEL"]:format(level), levelColor.r, levelColor.g, levelColor.b)
+      end
+    end
+
     if db.showIconId and data.id then
       local icon = select(5, C_Item.GetItemInfoInstant(data.id))
       if icon then
@@ -117,8 +125,57 @@ function NT:OnTooltipSetData(tooltip, data)
       line3:Show()
     end
 
+    -- Item Level (White)
+    local nextLineIndex = 4
+    if db.showItemLevel and UnitIsPlayer(unit) then
+      local iLevel
+      if UnitIsUnit(unit, "player") then
+        iLevel = select(2, GetAverageItemLevel())
+      else
+        local guid = UnitGUID(unit)
+        if guid then
+          iLevel = self.lastItemLevel and self.lastItemLevel[guid]
+          if not iLevel then
+            -- Fallback to search tooltip lines (some addons/Blizzard might put it there)
+            if data and data.lines then
+              for i = 2, #data.lines do
+                local lineData = data.lines[i]
+                if lineData and lineData.leftText and lineData.leftText:find(L["ITEM_LEVEL"]:gsub("%%d", "")) then
+                  iLevel = tonumber(lineData.leftText:match("%d+"))
+                  break
+                end
+              end
+            end
+          end
+
+          if not iLevel then
+            -- Request inspect if we haven't checked this unit recently
+            if not self.lastInspectRequest or (GetTime() - self.lastInspectRequest > 2) then
+              if not (InCombatLockdown() or (InspectFrame and InspectFrame:IsShown())) then
+                NotifyInspect(unit)
+                self.lastInspectRequest = GetTime()
+                self.pendingInspectUnit = guid
+              end
+            end
+          end
+        end
+      end
+
+      if iLevel then
+        local line4 = _G[tooltipName .. "TextLeft4"]
+        if line4 then
+          line4:SetText(L["ITEM_LEVEL"]:format(iLevel))
+          line4:SetTextColor(levelColor.r, levelColor.g, levelColor.b)
+          line4:Show()
+        else
+          tooltip:AddLine(L["ITEM_LEVEL"]:format(iLevel), levelColor.r, levelColor.g, levelColor.b)
+        end
+        nextLineIndex = 5
+      end
+    end
+
     -- Target (Yellow)
-    local targetLineIndex = 4
+    local targetLineIndex = nextLineIndex
     if db.showTarget then
       local target = UnitName(unit .. "target")
       if target then
@@ -231,11 +288,30 @@ local function OnEvent(self, event, ...)
   if event == "ADDON_LOADED" and ... == addonName then
     self:UnregisterEvent("ADDON_LOADED")
     NT:Initialize()
+  elseif event == "INSPECT_READY" then
+    local guid = ...
+    if guid and NT.pendingInspectUnit == guid then
+      if not NT.lastItemLevel then NT.lastItemLevel = {} end
+
+      -- Get accurate "stated" iLevel from inspection
+      local iLevel = C_PaperDollInfo.GetInspectItemLevel("mouseover")
+
+      if iLevel and iLevel > 0 then
+        NT.lastItemLevel[guid] = iLevel
+        NT.pendingInspectUnit = nil
+
+        -- Refresh tooltip if mouse is still over the same unit
+        if UnitExists("mouseover") and UnitGUID("mouseover") == guid then
+          GameTooltip:SetUnit("mouseover")
+        end
+      end
+    end
   end
 end
 
 local frame = CreateFrame("Frame")
 frame:RegisterEvent("ADDON_LOADED")
+frame:RegisterEvent("INSPECT_READY")
 frame:SetScript("OnEvent", OnEvent)
 
 ns.NT = NT

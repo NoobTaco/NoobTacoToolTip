@@ -15,7 +15,7 @@ if GetLocale() == "enUS" or GetLocale() == "enGB" then
   L["SHOW_MOUSE_DESC"] = "Show tooltip at mouse cursor."
   L["SCALE_NAME"] = "Tooltip Scale"
   L["SCALE_DESC"] = "Adjust the scale of the tooltip."
-  L["ITEM_LEVEL"] = "Item Level: %d"
+  L["ITEM_LEVEL"] = "Item Level: |cffffffff%d|r"
   L["GUILD"] = "Guild: %s"
   L["TARGET"] = "Target: %s"
   L["TARGET_LABEL"] = "Target:"
