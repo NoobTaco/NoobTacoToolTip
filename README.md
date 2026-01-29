@@ -4,7 +4,7 @@
 
 A clean, and informative tooltip replacement for World of Warcraft.
 
-![Full Preview](assets/noobtacotooltip-default.png)
+![Full Preview](https://raw.githubusercontent.com/NoobTaco/NoobTacoToolTip/main/assets/noobtacotooltip-default.png)
 
 ## What is this?
 **NoobTacoToolTip** (NTTT) takes your standard default tooltips and gives them a makeover. It makes them look sharper, provides more useful information at a glance, and lets you customize how they look.
@@ -30,11 +30,11 @@ A clean, and informative tooltip replacement for World of Warcraft.
 ## Previews
 
 ### Tooltip Examples
-![Item Preview](assets/noobtacotooltip-item.png)
-![Spell Preview](assets/noobtacotooltip-spell.png)
+![Item Preview](https://raw.githubusercontent.com/NoobTaco/NoobTacoToolTip/main/assets/noobtacotooltip-item.png)
+![Spell Preview](https://raw.githubusercontent.com/NoobTaco/NoobTacoToolTip/main/assets/noobtacotooltip-spell.png)
 
 ### Options Menu
-![Options Preview](assets/noobtacotooltip-options.png)
+![Options Preview](https://raw.githubusercontent.com/NoobTaco/NoobTacoToolTip/main/assets/noobtacotooltip-options.png)
 
 ## Feedback & Support
 Found a bug? Have a suggestion? Feel free to open an issue on the [GitHub repository](https://github.com/NoobTaco/NoobTacoToolTip).
