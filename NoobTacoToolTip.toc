@@ -17,7 +17,7 @@
 ## IconTexture: Interface\AddOns\NoobTacoToolTip\Media\Textures\logo.tga
 ## SavedVariables: NoobTacoToolTipDB
 ## X-Curse-Project-ID: 1447369
-# ## X-Wago-ID: placeholder
+## X-Wago-ID: aN0X8MNj
 
 # Libraries
 Libraries\LibStub\LibStub.lua
