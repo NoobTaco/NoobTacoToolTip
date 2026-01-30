@@ -11,11 +11,9 @@ ignore:
 
 externals:
     Libraries/LibStub:
-        url: https://github.com/lua-wow/LibStub.git
-        tag: main
+        url: https://repos.wowace.com/wow/libstub/mainline/trunk
     Libraries/CallbackHandler-1.0:
-        url: https://github.com/lua-wow/CallbackHandler.git
-        tag: main
+        url: https://repos.wowace.com/wow/callbackhandler/mainline/trunk
     Libraries/LibSharedMedia-3.0: 
         url: https://github.com/NoobTaco/LibSharedMedia-3.0.git
         tag: main

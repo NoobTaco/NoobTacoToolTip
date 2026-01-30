@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.2] - 2026-01-30
+
+### 🐛 Bug Fixes
+*   **Build System**: Switched library repository sources to official WowAce SVN URLs to fix fetch errors in the build pipeline.
+
 ## [1.0.1] - 2026-01-30
 
 ### 🐛 Bug Fixes
