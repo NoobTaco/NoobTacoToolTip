@@ -10,6 +10,15 @@ ignore:
     - dev-helper.sh
 
 externals:
+    Libraries/LibStub:
+        url: https://github.com/lua-wow/LibStub.git
+        tag: main
+    Libraries/CallbackHandler-1.0:
+        url: https://github.com/lua-wow/CallbackHandler.git
+        tag: main
     Libraries/LibSharedMedia-3.0: 
         url: https://github.com/NoobTaco/LibSharedMedia-3.0.git
+        tag: main
+    Libraries/LibQTip-2.0:
+        url: https://github.com/Torhal/LibQTip-2.0.git
         tag: main

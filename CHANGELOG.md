@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.1] - 2026-01-30
+
+### 🐛 Bug Fixes
+*   **Packaging**: Fixed missing libraries (`LibStub`, `CallbackHandler`, `LibQTip`) in the packaged addon by adding them as externals in `.pkgmeta`.
+*   **Loading**: Resolved `CallbackHandler` loading error.
+
 ## [1.0.0] - 2026-01-29
 
 ### ✨ New Features
