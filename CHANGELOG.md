@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.3] - 2026-01-30
+
+### 🐛 Bug Fixes
+*   **Build System**: Switched to highly reliable GitHub mirrors for `LibStub` and `CallbackHandler-1.0` to resolve remaining fetch errors in the build pipeline.
+
 ## [1.0.2] - 2026-01-30
 
 ### 🐛 Bug Fixes

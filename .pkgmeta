@@ -11,9 +11,11 @@ ignore:
 
 externals:
     Libraries/LibStub:
-        url: https://repos.wowace.com/wow/libstub/mainline/trunk
+        url: https://github.com/wowace-clone/LibStub.git
+        tag: main
     Libraries/CallbackHandler-1.0:
-        url: https://repos.wowace.com/wow/callbackhandler/mainline/trunk
+        url: https://github.com/wowace-clone/CallbackHandler-1.0.git
+        tag: main
     Libraries/LibSharedMedia-3.0: 
         url: https://github.com/NoobTaco/LibSharedMedia-3.0.git
         tag: main
