@@ -1,7 +1,11 @@
 ## Interface: 120001, 120000, 110007, 110100, 40402, 11505
 ## Title: |cffD78144NoobTaco|r|cffF8F9FAToolTip|r
 ## Author: NoobTaco
+<<<<<<< HEAD
 ## Version: v1.0.4
+=======
+## Version: v1.0.5
+>>>>>>> dev
 ## Notes: A clean and informative tooltip addon.
 ## Category-enUS: Tooltip
 ## Category-deDE: Tooltip
