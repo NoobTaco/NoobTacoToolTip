@@ -1,6 +1,12 @@
 # Changelog
 
-## [1.0.3] - 2026-01-30
+## [1.0.7] - 2026-01-31
+
+### 🐛 Bug Fixes
+*   **Health Bar Overlap**: Fixed an issue where the health bar would overlap tooltip text on small tooltips.
+*   **Tooltip Padding**: Added bottom padding to tooltips when the health bar is visible to prevent content from being cut off.
+
+## [1.0.6] - 2026-01-31
 
 ### 🐛 Bug Fixes
 *   **Build System**: Switched to highly reliable GitHub mirrors for `LibStub` and `CallbackHandler-1.0` to resolve remaining fetch errors in the build pipeline.
