@@ -17,12 +17,41 @@ local defaults = {
   fontSize = 12,
   showTitle = true,
   borderColor = "FF0F0F0F",
+  bgTexture = "Solid",
 }
 
 local function GetFontOptions()
   local container = Settings.CreateControlTextContainer()
   for _, fontName in ipairs(LSM:List("font")) do
     container:Add(fontName, fontName)
+  end
+  return container:GetData()
+end
+
+local function GetBackgroundOptions()
+  local container = Settings.CreateControlTextContainer()
+  local combined = {}
+  local backgroundList = LSM:List("background")
+  if backgroundList then
+    for _, name in ipairs(backgroundList) do
+      combined[name] = true
+    end
+  end
+  local statusbarList = LSM:List("statusbar")
+  if statusbarList then
+    for _, name in ipairs(statusbarList) do
+      combined[name] = true
+    end
+  end
+
+  local sortedNames = {}
+  for name in pairs(combined) do
+    table.insert(sortedNames, name)
+  end
+  table.sort(sortedNames)
+
+  for _, name in ipairs(sortedNames) do
+    container:Add(name, name)
   end
   return container:GetData()
 end
@@ -86,6 +115,11 @@ function NT:InitializeOptions()
     type(defaults.borderColor), L["BORDER_COLOR_NAME"], defaults.borderColor)
 
   Settings.CreateDropdown(category, setting, GetColorOptions, L["BORDER_COLOR_DESC"])
+
+  -- Background Texture
+  setting = Settings.RegisterAddOnSetting(category, "NT_BG_TEXTURE", "bgTexture", NoobTacoToolTipDB,
+    type(defaults.bgTexture), L["BG_TEXTURE_NAME"], defaults.bgTexture)
+  Settings.CreateDropdown(category, setting, GetBackgroundOptions, L["BG_TEXTURE_DESC"])
 
   -- Header Font
   setting = Settings.RegisterAddOnSetting(category, "NT_HEADER_FONT", "headerFont", NoobTacoToolTipDB,
