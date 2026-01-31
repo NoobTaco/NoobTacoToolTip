@@ -6,13 +6,23 @@ ns.NT = NT
 local L = ns.L
 NT.Version = C_AddOns and C_AddOns.GetAddOnMetadata(addonName, "Version") or GetAddOnMetadata(addonName, "Version")
 
+local function SafeGetLineText(lineData)
+  if not lineData then return nil end
+  local success, text = pcall(function() return lineData.leftText end)
+  if success and type(text) == "string" then
+    return text
+  end
+  return nil
+end
+
 function NT:GetItemLevel(data)
   if not data or not data.lines then return end
 
   -- Try to find item level in tooltip lines first (modern WoW way)
   for _, line in ipairs(data.lines) do
     if line.type == 41 then -- Enum.TooltipDataLineType.ItemLevel
-      return line.leftText and tonumber(line.leftText:match("%d+"))
+      local text = SafeGetLineText(line)
+      return text and tonumber(text:match("%d+"))
     end
   end
 
@@ -73,10 +83,11 @@ function NT:OnTooltipSetData(tooltip, data)
       if data and data.lines then
         for i = 2, #data.lines do
           local lineData = data.lines[i]
-          if lineData and lineData.leftText then
+          local text = SafeGetLineText(lineData)
+          if text then
             -- Usually, Blizzard puts "Spec Class" on line 2 or 3
-            if lineData.leftText:find(class) then
-              specName = lineData.leftText:gsub(class, ""):trim()
+            if text:find(class) then
+              specName = text:gsub(class, ""):trim()
               break
             end
           end
@@ -140,8 +151,9 @@ function NT:OnTooltipSetData(tooltip, data)
             if data and data.lines then
               for i = 2, #data.lines do
                 local lineData = data.lines[i]
-                if lineData and lineData.leftText and lineData.leftText:find(L["ITEM_LEVEL"]:gsub("%%d", "")) then
-                  iLevel = tonumber(lineData.leftText:match("%d+"))
+                local text = SafeGetLineText(lineData)
+                if text and text:find(L["ITEM_LEVEL"]:gsub("%%d", "")) then
+                  iLevel = tonumber(text:match("%d+"))
                   break
                 end
               end
