@@ -31,8 +31,8 @@ function NT:StyleHealthBar(tooltip)
   if not statusBar.ntStyled then
     statusBar:SetHeight(4)
     statusBar:ClearAllPoints()
-    statusBar:SetPoint("BOTTOMLEFT", tooltip, "BOTTOMLEFT", 1, 2)
-    statusBar:SetPoint("BOTTOMRIGHT", tooltip, "BOTTOMRIGHT", -1, 2)
+    statusBar:SetPoint("BOTTOMLEFT", tooltip, "BOTTOMLEFT", 1, 1)
+    statusBar:SetPoint("BOTTOMRIGHT", tooltip, "BOTTOMRIGHT", -1, 1)
     statusBar:SetStatusBarTexture([[Interface\Buttons\WHITE8X8]])
 
     -- Background for the status bar
@@ -52,9 +52,6 @@ function NT:UpdateTooltipStyle(tooltip)
   if not tooltip or tooltip:IsForbidden() then return end
 
   -- Hide default border elements
-  if tooltip.SetBackdrop then
-    tooltip:SetBackdrop(nil)
-  end
   if tooltip.NineSlice then
     tooltip.NineSlice:Hide()
   end
@@ -89,36 +86,51 @@ function NT:UpdateTooltipStyle(tooltip)
   local db = NoobTacoToolTipDB
   local edgeSize = db.borderSize or 1
 
-  -- Update Border Positions and Sizes
+  -- Layout: Background and Borders
+  tooltip.ntBg:ClearAllPoints()
+  tooltip.ntBg:SetAllPoints(tooltip)
+
+  tooltip.ntBorderTop:ClearAllPoints()
   tooltip.ntBorderTop:SetHeight(edgeSize)
   tooltip.ntBorderTop:SetPoint("TOPLEFT", tooltip, "TOPLEFT")
   tooltip.ntBorderTop:SetPoint("TOPRIGHT", tooltip, "TOPRIGHT")
 
+  tooltip.ntBorderBottom:ClearAllPoints()
   tooltip.ntBorderBottom:SetHeight(edgeSize)
-  tooltip.ntBorderBottom:SetPoint("BOTTOMLEFT", tooltip, "BOTTOMLEFT")
-  tooltip.ntBorderBottom:SetPoint("BOTTOMRIGHT", tooltip, "BOTTOMRIGHT")
+  tooltip.ntBorderBottom:SetPoint("BOTTOMLEFT", tooltip, "BOTTOMLEFT", 0, 0)
+  tooltip.ntBorderBottom:SetPoint("BOTTOMRIGHT", tooltip, "BOTTOMRIGHT", 0, 0)
 
+  tooltip.ntBorderLeft:ClearAllPoints()
   tooltip.ntBorderLeft:SetWidth(edgeSize)
-  tooltip.ntBorderLeft:SetPoint("TOPLEFT", tooltip, "TOPLEFT")
-  tooltip.ntBorderLeft:SetPoint("BOTTOMLEFT", tooltip, "BOTTOMLEFT")
+  tooltip.ntBorderLeft:SetPoint("TOPLEFT", tooltip, "TOPLEFT", 0, 0)
+  tooltip.ntBorderLeft:SetPoint("BOTTOMLEFT", tooltip, "BOTTOMLEFT", 0, 0)
 
+  tooltip.ntBorderRight:ClearAllPoints()
   tooltip.ntBorderRight:SetWidth(edgeSize)
-  tooltip.ntBorderRight:SetPoint("TOPRIGHT", tooltip, "TOPRIGHT")
-  tooltip.ntBorderRight:SetPoint("BOTTOMRIGHT", tooltip, "BOTTOMRIGHT")
+  tooltip.ntBorderRight:SetPoint("TOPRIGHT", tooltip, "TOPRIGHT", 0, 0)
+  tooltip.ntBorderRight:SetPoint("BOTTOMRIGHT", tooltip, "BOTTOMRIGHT", 0, 0)
+
+  -- Reserved space for Health Bar
+  local statusBar = _G[tooltip:GetName() .. "StatusBar"]
+  if statusBar and statusBar:IsShown() then
+    tooltip:SetPadding(0, 0, 0, 6)
+  else
+    tooltip:SetPadding(0, 0, 0, 0)
+  end
 
   -- Update Colors
   local bg = NT.Styles.Colors.Background
-  local borderCol = {
-    r = NT.Styles.Colors.Border.r,
-    g = NT.Styles.Colors.Border.g,
-    b = NT.Styles.Colors.Border.b,
-    a = NT
-        .Styles.Colors.Border.a
-  }
+  local borderCol = { r = 0, g = 0, b = 0, a = 1 }
+  local defaultBorder = NT.Styles.Colors.Border
+  borderCol.r, borderCol.g, borderCol.b, borderCol.a = defaultBorder.r, defaultBorder.g, defaultBorder.b, defaultBorder
+  .a
+
   if db.borderColor then
     if type(db.borderColor) == "string" then
       local color = CreateColorFromHexString(db.borderColor)
-      borderCol.r, borderCol.g, borderCol.b, borderCol.a = color.r, color.g, color.b, color.a
+      if color then
+        borderCol.r, borderCol.g, borderCol.b, borderCol.a = color.r, color.g, color.b, color.a
+      end
     elseif type(db.borderColor) == "table" and db.borderColor.r then
       borderCol.r, borderCol.g, borderCol.b, borderCol.a = db.borderColor.r, db.borderColor.g, db.borderColor.b,
           db.borderColor.a or 1
@@ -133,14 +145,6 @@ function NT:UpdateTooltipStyle(tooltip)
 
   -- Style Health Bar
   self:StyleHealthBar(tooltip)
-
-  -- Add bottom padding to prevent health bar overlap
-  local statusBar = _G[tooltip:GetName() .. "StatusBar"]
-  if statusBar and statusBar:IsShown() then
-    tooltip:SetPadding(0, 0, 0, 10)
-  else
-    tooltip:SetPadding(0, 0, 0, 0)
-  end
 
   -- Crisp Text: Apply Font
   local headerFontName = db.headerFont or "Poppins Bold"

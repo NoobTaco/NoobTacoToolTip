@@ -1,10 +1,13 @@
 # Changelog
 
-## [1.0.7] - 2026-01-31
+## [1.0.8] - 2026-01-31
 
 ### 🐛 Bug Fixes
-*   **Health Bar Overlap**: Fixed an issue where the health bar would overlap tooltip text on small tooltips.
-*   **Tooltip Padding**: Added bottom padding to tooltips when the health bar is visible to prevent content from being cut off.
+*   **World Object & NPC Support**: Fixed styling issues where trivial NPCs and world objects (like workbenches) were not being correctly captured by the custom backdrop.
+*   **Robust Layout Engine**: Re-engineered background and border anchoring using an `OnSizeChanged` hook to ensure perfect coverage even as tooltips grow dynamically.
+*   **Improved Health Bar Spacing**: Refined the internal padding logic to prevent health bar overlap without introducing extra space at the top of the tooltip.
+
+## [1.0.7] - 2026-01-31
 
 ## [1.0.6] - 2026-01-31
 

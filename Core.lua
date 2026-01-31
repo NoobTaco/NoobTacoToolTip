@@ -248,12 +248,11 @@ function NT:Initialize()
 
   -- Hook tooltips
   local types = {
-    Enum.TooltipDataType.Item,
-    Enum.TooltipDataType.Unit,
-    Enum.TooltipDataType.Spell,
-    Enum.TooltipDataType.Currency,
-    Enum.TooltipDataType.Achievement,
     Enum.TooltipDataType.Quest,
+    Enum.TooltipDataType.Object,
+    Enum.TooltipDataType.Mount,
+    Enum.TooltipDataType.Macro,
+    Enum.TooltipDataType.Toy,
   }
 
   for _, typeID in ipairs(types) do
@@ -275,6 +274,11 @@ function NT:Initialize()
     if frame then
       frame:HookScript("OnShow", function(tooltip)
         self:UpdateTooltipStyle(tooltip)
+      end)
+      frame:HookScript("OnSizeChanged", function(tooltip)
+        if tooltip.ntBackdrop then
+          tooltip.ntBackdrop:SetSize(tooltip:GetSize())
+        end
       end)
     end
   end
