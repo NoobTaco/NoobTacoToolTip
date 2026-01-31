@@ -1,19 +1,12 @@
 # Changelog
 
-## [1.0.6] - 2026-01-31
+## [1.0.7] - 2026-01-31
 
 ### 🐛 Bug Fixes
-*   **Taint Safety (Deep)**: Refactored tooltip parsing to avoid indexing 'secret values' (strings from secure sources), ensuring stability in Battlegrounds.
-*   **Build System**: Resolved merge conflict markers and version inconsistencies in the project file.
+*   **Health Bar Overlap**: Fixed an issue where the health bar would overlap tooltip text on small tooltips.
+*   **Tooltip Padding**: Added bottom padding to tooltips when the health bar is visible to prevent content from being cut off.
 
-## [1.0.5] - 2026-01-31
-
-### ✨ New Features
-*   **Selectable Background Textures**: Added a new "Background Texture" option to the appearance settings.
-*   **LibSharedMedia Integration**: Now supports a wide variety of background and statusbar textures from the WoW client and other media addons.
-*   **Enhanced Defaults**: Registered several standard Blizzard textures (Marble, Rock, Parchment, etc.) for immediate use.
-
-## [1.0.3] - 2026-01-30
+## [1.0.6] - 2026-01-31
 
 ### 🐛 Bug Fixes
 *   **Build System**: Switched to highly reliable GitHub mirrors for `LibStub` and `CallbackHandler-1.0` to resolve remaining fetch errors in the build pipeline.

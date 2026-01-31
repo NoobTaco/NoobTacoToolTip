@@ -43,8 +43,8 @@ function NT:StyleHealthBar(tooltip)
   if not statusBar.ntStyled then
     statusBar:SetHeight(4)
     statusBar:ClearAllPoints()
-    statusBar:SetPoint("BOTTOMLEFT", tooltip, "BOTTOMLEFT", 1, 1)
-    statusBar:SetPoint("BOTTOMRIGHT", tooltip, "BOTTOMRIGHT", -1, 1)
+    statusBar:SetPoint("BOTTOMLEFT", tooltip, "BOTTOMLEFT", 1, 2)
+    statusBar:SetPoint("BOTTOMRIGHT", tooltip, "BOTTOMRIGHT", -1, 2)
     statusBar:SetStatusBarTexture([[Interface\Buttons\WHITE8X8]])
 
     -- Background for the status bar
@@ -120,13 +120,20 @@ function NT:UpdateTooltipStyle(tooltip)
 
   -- Update Colors
   local bg = NT.Styles.Colors.Background
-  local borderCol = NT.Styles.Colors.Border
+  local borderCol = {
+    r = NT.Styles.Colors.Border.r,
+    g = NT.Styles.Colors.Border.g,
+    b = NT.Styles.Colors.Border.b,
+    a = NT
+        .Styles.Colors.Border.a
+  }
   if db.borderColor then
     if type(db.borderColor) == "string" then
       local color = CreateColorFromHexString(db.borderColor)
-      borderCol = { r = color.r, g = color.g, b = color.b, a = color.a }
+      borderCol.r, borderCol.g, borderCol.b, borderCol.a = color.r, color.g, color.b, color.a
     elseif type(db.borderColor) == "table" and db.borderColor.r then
-      borderCol = db.borderColor
+      borderCol.r, borderCol.g, borderCol.b, borderCol.a = db.borderColor.r, db.borderColor.g, db.borderColor.b,
+          db.borderColor.a or 1
     end
   end
 
@@ -144,6 +151,14 @@ function NT:UpdateTooltipStyle(tooltip)
 
   -- Style Health Bar
   self:StyleHealthBar(tooltip)
+
+  -- Add bottom padding to prevent health bar overlap
+  local statusBar = _G[tooltip:GetName() .. "StatusBar"]
+  if statusBar and statusBar:IsShown() then
+    tooltip:SetPadding(0, 0, 0, 10)
+  else
+    tooltip:SetPadding(0, 0, 0, 0)
+  end
 
   -- Crisp Text: Apply Font
   local headerFontName = db.headerFont or "Poppins Bold"
