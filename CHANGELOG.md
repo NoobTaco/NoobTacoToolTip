@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4] - 2026-01-31
+
+### ✨ New Features
+*   **Selectable Background Textures**: Added a new "Background Texture" option to the appearance settings.
+*   **LibSharedMedia Integration**: Now supports a wide variety of background and statusbar textures from the WoW client and other media addons.
+*   **Enhanced Defaults**: Registered several standard Blizzard textures (Marble, Rock, Parchment, etc.) for immediate use.
+
 ## [1.0.3] - 2026-01-30
 
 ### 🐛 Bug Fixes

@@ -30,6 +30,8 @@ if GetLocale() == "enUS" or GetLocale() == "enGB" then
   L["SHOW_TITLE_DESC"] = "Toggle the display of player titles in tooltips."
   L["BORDER_COLOR_NAME"] = "Border Color"
   L["BORDER_COLOR_DESC"] = "Set the color of the tooltip border."
+  L["BG_TEXTURE_NAME"] = "Background Texture"
+  L["BG_TEXTURE_DESC"] = "Select the background texture for the tooltip."
 end
 
 -- Add more locales here as needed (deDE, frFR, etc.)

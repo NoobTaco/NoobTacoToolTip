@@ -8,6 +8,18 @@ LSM:Register("font", "Poppins Bold", [[Interface\AddOns\NoobTacoToolTip\Media\Fo
 LSM:Register("font", "Roboto Regular", [[Interface\AddOns\NoobTacoToolTip\Media\Fonts\Roboto-Regular.ttf]])
 LSM:Register("font", "Roboto Bold", [[Interface\AddOns\NoobTacoToolTip\Media\Fonts\Roboto-Bold.ttf]])
 
+-- Register Backgrounds
+LSM:Register("background", "Solid", [[Interface\Buttons\WHITE8X8]])
+LSM:Register("background", "Blizzard Tooltip", [[Interface\Tooltips\UI-Tooltip-Background]])
+LSM:Register("background", "Blizzard Chat", [[Interface\ChatFrame\ChatFrameBackground]])
+LSM:Register("background", "Blizzard Dialog", [[Interface\DialogFrame\UI-DialogBox-Background]])
+LSM:Register("background", "Blizzard Character", [[Interface\CharacterFrame\UI-CharacterFrame-Background]])
+LSM:Register("background", "Blizzard Marble", [[Interface\FrameGeneral\UI-Background-Marble]])
+LSM:Register("background", "Blizzard Rock", [[Interface\FrameGeneral\UI-Background-Rock]])
+LSM:Register("background", "Blizzard Parchment", [[Interface\AchievementFrame\UI-Achievement-Parchment-Horizontal]])
+LSM:Register("background", "Blizzard Parchment 2",
+  [[Interface\AchievementFrame\UI-GuildAchievement-Parchment-Horizontal]])
+
 -- Styles Configuration
 NT.Styles = {
   Backdrop = {
@@ -108,21 +120,27 @@ function NT:UpdateTooltipStyle(tooltip)
 
   -- Update Colors
   local bg = NT.Styles.Colors.Background
-  local border = NT.Styles.Colors.Border
+  local borderCol = NT.Styles.Colors.Border
   if db.borderColor then
     if type(db.borderColor) == "string" then
       local color = CreateColorFromHexString(db.borderColor)
-      border = { r = color.r, g = color.g, b = color.b, a = color.a }
-    elseif type(db.borderColor) == "table" then
-      border = db.borderColor
+      borderCol = { r = color.r, g = color.g, b = color.b, a = color.a }
+    elseif type(db.borderColor) == "table" and db.borderColor.r then
+      borderCol = db.borderColor
     end
   end
+
+  -- Update Background Texture
+  local bgTextureName = db.bgTexture or "Solid"
+  local bgTex = LSM:Fetch("background", bgTextureName, true) or LSM:Fetch("statusbar", bgTextureName, true) or
+  [[Interface\Buttons\WHITE8X8]]
+  tooltip.ntBg:SetTexture(bgTex)
   tooltip.ntBg:SetVertexColor(bg.r, bg.g, bg.b, bg.a)
 
-  tooltip.ntBorderTop:SetVertexColor(border.r, border.g, border.b, border.a)
-  tooltip.ntBorderBottom:SetVertexColor(border.r, border.g, border.b, border.a)
-  tooltip.ntBorderLeft:SetVertexColor(border.r, border.g, border.b, border.a)
-  tooltip.ntBorderRight:SetVertexColor(border.r, border.g, border.b, border.a)
+  tooltip.ntBorderTop:SetVertexColor(borderCol.r, borderCol.g, borderCol.b, borderCol.a)
+  tooltip.ntBorderBottom:SetVertexColor(borderCol.r, borderCol.g, borderCol.b, borderCol.a)
+  tooltip.ntBorderLeft:SetVertexColor(borderCol.r, borderCol.g, borderCol.b, borderCol.a)
+  tooltip.ntBorderRight:SetVertexColor(borderCol.r, borderCol.g, borderCol.b, borderCol.a)
 
   -- Style Health Bar
   self:StyleHealthBar(tooltip)
