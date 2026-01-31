@@ -1,6 +1,12 @@
 # Changelog
 
-## [1.0.4] - 2026-01-31
+## [1.0.6] - 2026-01-31
+
+### 🐛 Bug Fixes
+*   **Taint Safety (Deep)**: Refactored tooltip parsing to avoid indexing 'secret values' (strings from secure sources), ensuring stability in Battlegrounds.
+*   **Build System**: Resolved merge conflict markers and version inconsistencies in the project file.
+
+## [1.0.5] - 2026-01-31
 
 ### ✨ New Features
 *   **Selectable Background Textures**: Added a new "Background Texture" option to the appearance settings.

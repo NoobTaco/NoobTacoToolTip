@@ -22,7 +22,10 @@ function NT:GetItemLevel(data)
   for _, line in ipairs(data.lines) do
     if line.type == 41 then -- Enum.TooltipDataLineType.ItemLevel
       local text = SafeGetLineText(line)
-      return text and tonumber(text:match("%d+"))
+      if text then
+        local levelMatch = string.match(text, "%d+")
+        return levelMatch and tonumber(levelMatch)
+      end
     end
   end
 
@@ -86,8 +89,8 @@ function NT:OnTooltipSetData(tooltip, data)
           local text = SafeGetLineText(lineData)
           if text then
             -- Usually, Blizzard puts "Spec Class" on line 2 or 3
-            if text:find(class) then
-              specName = text:gsub(class, ""):trim()
+            if string.find(text, class) then
+              specName = strtrim(string.gsub(text, class, ""))
               break
             end
           end
@@ -152,8 +155,9 @@ function NT:OnTooltipSetData(tooltip, data)
               for i = 2, #data.lines do
                 local lineData = data.lines[i]
                 local text = SafeGetLineText(lineData)
-                if text and text:find(L["ITEM_LEVEL"]:gsub("%%d", "")) then
-                  iLevel = tonumber(text:match("%d+"))
+                if text and string.find(text, string.gsub(L["ITEM_LEVEL"], "%%d", "")) then
+                  local levelMatch = string.match(text, "%d+")
+                  iLevel = levelMatch and tonumber(levelMatch)
                   break
                 end
               end
