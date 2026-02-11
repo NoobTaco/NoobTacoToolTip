@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.9] - 2026-02-11
+
+### 🛠 Improvements
+*   Updated TOC for the latest WoW client.
+
 ## [1.0.8] - 2026-01-31
 
 ### 🐛 Bug Fixes
