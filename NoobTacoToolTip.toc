@@ -1,4 +1,4 @@
-## Interface: 120001, 120000, 110007, 110100, 40402, 11505
+## Interface: 120001, 40402, 11505
 ## Title: |cffD78144NoobTaco|r|cffF8F9FAToolTip|r
 ## Author: NoobTaco
 ## Version: v1.0.8
